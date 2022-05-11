@@ -97,10 +97,7 @@ function newDepartment(departmentName) {
             const query = `INSERT INTO department (name) VALUES ('${departmentName}')`;
             db.promise().query(query).then((results) => {
                 console.log("Succesfully added new department")
-            }).catch((err) => console.log(err)).then(() => {
-                main_choice();
-                })
-                })
+            }).catch((err) => console.log(err))})
 }
 
 function newRole() {
@@ -129,12 +126,8 @@ function newRole() {
                 const query = `INSERT INTO roles (title, salary, department_id) VALUES ('${rolename}', ${salary}, ${department_id})`;
                 db.promise().query(query).then((results) => {
                     console.log('Successfully added new role')
-                    }).catch((err) => console.log(err)).then(() => {
-                        main_choice();
-                        })
-                    })
-                })
-}
+                }).catch((err) => console.log(err))})
+            })}
 
 
 function newEmployee() {
@@ -192,12 +185,8 @@ function newEmployee() {
                     db.promise().query(query)
                         .then((results) => {
                         console.log('Successfully added new Employee')
-                    }).catch((err) => console.log(err)).then(() => {
-                        main_choice();
-                    })
-                })
-            })
-}
+                    }).catch((err) => console.log(err))})
+                })}
 
 // simple query
 // https://www.npmjs.com/package/mysql2 First Query
@@ -224,20 +213,15 @@ function existingDepartments() {
     const query = "SELECT * FROM department"
     db.promise().query(query).then((results) => {
         console.table(results[0])
-        }).catch((err)).then(() => {
-            main_choice()
-            })
-}
+    }).catch((err) => console.log(err))}
+
 
 // 'SELECT * FROM `table` WHERE `name` = ? AND `age` > ?',
 function existingRoles() {
     const query = `SELECT roles.id, roles.title, roles.salary, department.name as department FROM roles right join department on roles.department_id = department.id`;
     db.promise().query(query).then((results) => {
         console.table(results[0])
-        }).catch((err)).then(() => {
-            main_choice();
-            })
-}
+    }).catch((err) => console.log(err))}
 
 function existingEmployees() {
     const query = `SELECT employee.id, employee.first_name as 'first name', employee.last_name as 'last name', 
@@ -247,10 +231,7 @@ function existingEmployees() {
         LEFT JOIN employee m ON m.id = employee.manager_id`;
         db.promise().query(query).then((results) => {
             console.table(results[0])
-            }).catch((err)).then(() => {
-                main_choice();
-                })
-}
+        }).catch((err) => console.log(err))}
 
 // Not working properly, check
 function updateEmployee() {
@@ -301,12 +282,8 @@ function updateEmployee() {
                     WHERE id = ${employee_Object.id}`;
                     db.promise().query(query).then((results) => {
                         console.log(`successfully updated role for ${employee_Object.name}`)
-                    }).catch((err) => console.log(err)).then(() => {
-                        main_choice();
-                    })
-                })
-            })
-}
+                    }).catch((err) => console.log(err))})
+    })}
 
 /* Functions end here */
 
