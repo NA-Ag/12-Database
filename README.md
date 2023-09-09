@@ -1,4 +1,4 @@
-# 12-Assignment-Employee-Management System
+# 12-Employee-Management System
 A command line application that allows you the user to keep track of your department, your employees and their roles in your organization.
 
 # Team Viewer
@@ -50,4 +50,4 @@ screenshot 1  ![](./images/11-screenshot-1.PNG)
 ## Video Recording
 
 ## Repository
-link to repository (https://github.com/NA-Ag/12-Assignment-Database)
+link to repository (https://github.com/NA-Ag/12-Database)
